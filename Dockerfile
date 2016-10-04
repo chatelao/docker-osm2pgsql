@@ -9,6 +9,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y \
     autoconf \
     automake \
+    squid-deb-proxy-client \
     g++ \
     git-core \
     libboost-dev \
