@@ -6,10 +6,10 @@ MAINTAINER James Badger <james@jamesbadger.ca>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y squid-deb-proxy-client
+RUN apt-get install -y \
     autoconf \
     automake \
-    squid-deb-proxy-client \
     g++ \
     git-core \
     libboost-dev \
