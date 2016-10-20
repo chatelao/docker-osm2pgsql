@@ -21,6 +21,9 @@ When used with a postgres-osm container, it can import data directly into the da
     # docker run -i -t --rm --link vagrant_postgres-osm_1:pg --network vagrant_default -v ~/vagrant/osm_mapdata:/osm chatelao/osm2pgsql -c 'osm2pgsql --create --slim --cache 2000 --database $PG_ENV_OSM_DB --username $PG_ENV_OSM_USER --host pg --port $PG_PORT_5432_TCP_PORT /osm/monaco.osm.pbf'
     
     # docker run -i -t --rm --link vagrant_postgres-osm_1:pg --network vagrant_default -v /vagrant/osm_mapdata:/osm chatelao/osm2pgsql -c 'osm2pgsql --create --slim --cache 2000 --database gis --username osm --host pg --port 5432 /osm/monaco-latest.osm.pbf'
+    
+    # docker run -i -t --rm --link vagrant_postgres-osm_1:pg --network vagrant_default -v /vagrant/osm_mapdata:/osm chatelao/docker-osm2pgsql -c 'osm2pgsql --create --slim --cache 2000 --database gis --username osm --host pg --port 5432 --number-processes 3 /osm/switzerland-latest.osm.pbf'    
+
 
 For more information on running an import, please see TUTORIAL.markdown. If you have a particular scenario in mind, contact me and I will try to create a guide for that situation.
 
