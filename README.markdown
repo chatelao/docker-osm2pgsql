@@ -6,7 +6,7 @@ A Docker image with [osm2pgsql](https://github.com/openstreetmap/osm2pgsql), the
 
 Can be built from the Dockerfile:
 
-    # docker build -t openfirmware/osm2pgsql github.com/openfirmware/docker-osm2pgsql.git
+    # docker build -t chatelao/docker-osm2pgsql github.com/chatelao/docker-osm2pgsql.git
 
 This currently builds osm2pgsql for Debian from a specific tag; see the Dockerfile for the specific version. Alternatively, specify the tag and download the image from the Docker Hub.
 
@@ -14,13 +14,13 @@ This currently builds osm2pgsql for Debian from a specific tag; see the Dockerfi
 
 Once the image is built, you can run a single-use container with osm2pgsql. Args will be passed to bash, so you will have access to environment variables in your run command.
 
-    # docker run -i -t --rm openfirmware/osm2pgsql -c 'osm2pgsql -h'
+    # docker run -i -t --rm chatelao/docker-osm2pgsql -c 'osm2pgsql -h'
 
 When used with a postgres-osm container, it can import data directly into the database:
 
-    # docker run -i -t --rm --link vagrant_postgres-osm_1:pg --network vagrant_default -v ~/vagrant/osm_mapdata:/osm chatelao/osm2pgsql -c 'osm2pgsql --create --slim --cache 2000 --database $PG_ENV_OSM_DB --username $PG_ENV_OSM_USER --host pg --port $PG_PORT_5432_TCP_PORT /osm/monaco.osm.pbf'
+    # docker run -i -t --rm --link vagrant_postgres-osm_1:pg --network vagrant_default -v /vagrant/osm_mapdata:/osm chatelao/docker-osm2pgsql -c 'osm2pgsql --create --slim --cache 2000 --database $PG_ENV_OSM_DB --username $PG_ENV_OSM_USER --host pg --port $PG_PORT_5432_TCP_PORT /osm/monaco.osm.pbf'
     
-    # docker run -i -t --rm --link vagrant_postgres-osm_1:pg --network vagrant_default -v /vagrant/osm_mapdata:/osm chatelao/osm2pgsql -c 'osm2pgsql --create --slim --cache 2000 --database gis --username osm --host pg --port 5432 /osm/monaco-latest.osm.pbf'
+    # docker run -i -t --rm --link vagrant_postgres-osm_1:pg --network vagrant_default -v /vagrant/osm_mapdata:/osm chatelao/docker-osm2pgsql -c 'osm2pgsql --create --slim --cache 2000 --database gis --username osm --host pg --port 5432 /osm/monaco-latest.osm.pbf'
     
     # docker run -i -t --rm --link vagrant_postgres-osm_1:pg --network vagrant_default -v /vagrant/osm_mapdata:/osm chatelao/docker-osm2pgsql -c 'osm2pgsql --create --slim --cache 2000 --database gis --username osm --host pg --port 5432 --number-processes 3 /osm/switzerland-latest.osm.pbf'    
 
@@ -35,7 +35,7 @@ This Dockerfile was built with information from the [Ubuntu 14.04 Switch2OSM gui
 
 ## Related Docker Images
 
-* [Postgres-OSM Image](https://github.com/openfirmware/docker-postgres-osm)
+* [Postgres-OSM Image](https://github.com/openfirmware/osm2pgsql)
+* [Postgres-OSM Image](https://github.com/chatelao/docker-postgres-osm)
 * [Postgres Image](https://registry.hub.docker.com/_/postgres/)
 * [Postgres Image Repo](https://github.com/docker-library/postgres)
-
