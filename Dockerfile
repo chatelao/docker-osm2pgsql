@@ -27,7 +27,8 @@ RUN apt-get install -y \
     libxml2-dev \
     lua5.2 \
     make \
-    protobuf-c-compiler &&\
+    protobuf-c-compiler \
+    wget &&\
     rm -rf /var/lib/apt/lists/*
 
 ENV HOME /root
