@@ -44,8 +44,8 @@ RUN mkdir src &&\
     cd /root &&\
     rm -rf src
 
-RUN cd /usr/local/share/osm2pgsql
-   && wget https://raw.githubusercontent.com/der-stefan/OpenTopoMap/master/mapnik/osm2pgsql/opentopomap.style
+RUN cd /usr/local/share/osm2pgsql \
+   && wget https://raw.githubusercontent.com/der-stefan/OpenTopoMap/master/mapnik/osm2pgsql/opentopomap.style \
    && wget https://raw.githubusercontent.com/der-stefan/OpenTopoMap/master/mapnik/osm2pgsql/contours.style
 
 ENTRYPOINT ["/bin/bash"]
